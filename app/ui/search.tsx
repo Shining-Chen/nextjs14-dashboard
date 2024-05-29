@@ -9,8 +9,8 @@ export default function Search({ placeholder }: { placeholder: string }) {
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  function handleSearch(term: string) {
-    const handleSearch = useDebouncedCallback((term) => {
+//  function handleSearch(term: string) {  // React Hook "useDebouncedCallback" cannot be called in function that is neither a React function component nor a custom React Hook function
+  const handleSearch = useDebouncedCallback((term) => {
       const params = new URLSearchParams(searchParams);
       if (term) { 
         params.set('query', term);
@@ -19,7 +19,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
       }
       replace(`${pathname}?${params.toString()}`);
     }, 300);
-  }
+//  }
 
   return (
     <div className="relative flex flex-1 flex-shrink-0">
