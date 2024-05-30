@@ -12,6 +12,8 @@ export default function Search({ placeholder }: { placeholder: string }) {
 //  function handleSearch(term: string) {  // React Hook "useDebouncedCallback" cannot be called in function that is neither a React function component nor a custom React Hook function
   const handleSearch = useDebouncedCallback((term) => {
       const params = new URLSearchParams(searchParams);
+      params.set('page', '1');
+      
       if (term) { 
         params.set('query', term);
       } else {
